@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% from 'bootstrap/utils.html' import render_static %}
+
+{% block title %}Cover Page{% endblock %}
+
+{% block styles %}
+<!-- Bootstrap CSS -->
+{{super()}}
+{{ render_static('css', 'styles/cover.css') }}
+
+{% endblock %}
+
+{% block content %}
+<div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand">MQ | OpenShift</h3>
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link active" href="/">Home</a>
+          <a class="nav-link" href="/redhat">Red Hat</a>
+          <a class="nav-link active" href="/ibm">IBM</a>
+          <a class="nav-link" href="/secret">Secret</a>
+        </nav>
+      </div>
+    </header>
+
+    <main role="main" class="inner cover">
+      <img src="static/images/{{ image }}" class="img-fluid" alt="Responsive image">
+    </main>
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <small> &copy; 2019 <a href="https://snowjet.github.io/demo-flask/"" title="demo-flask">Demo-Flask</a></small>
+        </div>
+      </footer>
+  </div>
+{% endblock %}
