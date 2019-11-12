@@ -3,8 +3,6 @@ kind: Route
 metadata:
   name: mqocp
 spec:
-  host: "mqocp.{{ OCP_APPS_DOMAIN }}"
-  subdomain: ''
   to:
     kind: Service
     name: mqocp
@@ -15,4 +13,3 @@ spec:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
   wildcardPolicy: None
-
