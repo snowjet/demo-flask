@@ -8,7 +8,7 @@ from flask import url_for
 from six.moves.urllib.parse import urlencode
 from flask_bootstrap import Bootstrap
 
-from core.config import LOG_LEVEL, IBM_IMAGE_NAME, REDHAT_IMAGE_NAME, SECRET_IMAGE_LOCATION
+from core.config import LOG_LEVEL, IBM_IMAGE_NAME, REDHAT_IMAGE_NAME, SECRET_IMAGE_LOCATION, src_image_data
 from core.log import logger
 
 logger.info("Config Imported", LOG_LEVEL=LOG_LEVEL, IBM_IMAGE_NAME=IBM_IMAGE_NAME, REDHAT_IMAGE_NAME=REDHAT_IMAGE_NAME, SECRET_IMAGE_LOCATION=SECRET_IMAGE_LOCATION)
@@ -39,7 +39,7 @@ def ibm():
 @app.route("/secret")
 def secret():
     return render_template("secret.html",
-    image=SECRET_IMAGE_LOCATION)
+    src_image=src_image_data)
 
 if __name__ == '__main__':
     app.run(debug=DEBUG, host='0.0.0.0', port=8080)

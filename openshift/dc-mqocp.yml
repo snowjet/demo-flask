@@ -26,27 +26,16 @@ spec:
         ports:
         - name: mqocp-port
           containerPort: 8080
-        env:
-        - name: POSTGRES_USER
-          valueFrom:
-            secretKeyRef:
-              key: database-user
-              name: postgres
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              key: database-password
-              name: postgres
-        - name: POSTGRES_DATABASE
-          valueFrom:
-            secretKeyRef:
-              key: database-name
-              name: postgres           
+        env:        
         - name: env_file
           value:  /opt/app-root/env/.env          
         volumeMounts:
-          - name: mqocp-config
-            mountPath: /opt/app-root/env                       
+          - name: secret-mqocp
+            readOnly: true
+            mountPath: '/opt/app-root/src/static/images/secret'
+          - name: configmap-mqocp
+            readOnly: true
+            mountPath: '/opt/app-root/env'            
         readinessProbe:
           tcpSocket:
             port: mqocp-port
@@ -65,12 +54,9 @@ spec:
           items:
             - key: env
               path: .env
-      - name: mqocp-secret
-        configMap:
-          name: secret-mqocp
-          items:
-            - key: share.png
-              path: share.png            
+        - name: secret-mqocp
+          secret:
+            secretName: secret-mqocp        
   triggers:
   - type: ConfigChange
   - imageChangeParams:

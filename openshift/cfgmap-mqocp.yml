@@ -6,6 +6,6 @@ data:
   env: |-
     LOG_LEVEL="INFO"
     PROJECT_NAME="Sharing"
-    IBM_IMAGE_NAME="ibm.png"
-    REDHAT_IMAGE_NAME="redhat.png"
-    SECRET_IMAGE_LOCATION="secret/share.png"
+    IBM_IMAGE_NAME="ibm.jpg"
+    REDHAT_IMAGE_NAME="redhat.jpg"
+    SECRET_IMAGE_LOCATION="secret/share.jpg"
