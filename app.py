@@ -1,17 +1,11 @@
-from functools import wraps
-import json
-from os import environ as env
-from werkzeug.exceptions import HTTPException
-
 from flask import Flask
 from flask import jsonify
 from flask import redirect
 from flask import render_template
 from flask import session
 from flask import url_for
-from authlib.flask.client import OAuth
-from six.moves.urllib.parse import urlencode
 
+from six.moves.urllib.parse import urlencode
 from flask_bootstrap import Bootstrap
 
 from core.config import LOG_LEVEL, IBM_IMAGE_NAME, REDHAT_IMAGE_NAME, SECRET_IMAGE_LOCATION
@@ -48,4 +42,4 @@ def secret():
     image=SECRET_IMAGE_LOCATION)
 
 if __name__ == '__main__':
-    app.run(debug=DEBUG, host='0.0.0.0')
+    app.run(debug=DEBUG, host='0.0.0.0', port=8080)

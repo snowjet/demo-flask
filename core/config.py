@@ -2,7 +2,6 @@ import os
 import pathlib
 
 from dotenv import load_dotenv
-from starlette.datastructures import CommaSeparatedStrings, Secret
 
 env_file = os.environ.get("env_file", ".env")
 load_dotenv(env_file)
