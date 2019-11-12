@@ -17,7 +17,7 @@ if SECRET_IMAGE_LOCATION == "not_found.jpg":
     src_image_data = "static/images/not_found.jpg"
 else:
     full_path = "/opt/app-root/src/static/images/" + SECRET_IMAGE_LOCATION
-    img_data = Path(full_path).read_text()
+    img_data = pathlib.Path(full_path).read_text()
     img_data = img_data.replace('\n', '')
     src_image_data = "data:image/jpeg;base64," + img_data
 
