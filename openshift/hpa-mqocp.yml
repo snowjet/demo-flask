@@ -1,0 +1,17 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-quote
+  namespace: rhmq
+spec:
+  scaleTargetRef:
+    apiVersion: apps.openshift.io/v1
+    kind: Deployment
+    name: quote
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        targetAverageUtilization: 50
