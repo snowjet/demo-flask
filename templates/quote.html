@@ -17,16 +17,19 @@
         <h3 class="masthead-brand">MQ | OpenShift</h3>
         <nav class="nav nav-masthead justify-content-center">
           <a class="nav-link" href="/">Home</a>
-          <a class="nav-link active" href="/redhat">Red Hat</a>
+          <a class="nav-link" href="/redhat">Red Hat</a>
           <a class="nav-link" href="/ibm">IBM</a>
           <a class="nav-link" href="/secret">Secret</a>
-          <a class="nav-link" href="/quote">Quote</a>
+          <a class="nav-link active" href="/quote">Quote</a>
         </nav>
       </div>
     </header>
 
     <main role="main" class="inner cover">
-      <img src="static/images/{{ image }}" class="img-fluid" alt="Responsive image">
+      <h3>{{ quote_json['name'] }}:</h3>
+      <h2 class="text-danger"> > 
+          <small class="text-muted">{{ quote_json['quote'] }}</small>
+      </h2>
     </main>
     <footer class="mastfoot mt-auto">
         <div class="inner">

@@ -28,11 +28,13 @@ spec:
           containerPort: 8080
         env:        
         - name: env_file
-          value:  /opt/app-root/env/.env          
+          value:  /opt/app-root/env/.env
+        envFrom:
+          - configMapRef:
+              name: configmap-mqocp
+          - secretRef:
+              name: secret-mqocp
         volumeMounts:
-          - name: secret-mqocp
-            readOnly: true
-            mountPath: '/opt/app-root/src/static/images/secret'
           - name: configmap-mqocp
             readOnly: true
             mountPath: '/opt/app-root/env'            
@@ -54,9 +56,6 @@ spec:
           items:
             - key: env
               path: .env
-        - name: secret-mqocp
-          secret:
-            secretName: secret-mqocp        
   triggers:
   - type: ConfigChange
   - imageChangeParams:
