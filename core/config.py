@@ -24,10 +24,13 @@ if SECRET_IMAGE_LOCATION is None or SECRET_KEY is None:
 else:
     ROOT_DIR = str(pathlib.Path(__file__).parent.parent)
     full_path = ROOT_DIR + "/static/images/" + SECRET_IMAGE_LOCATION
-    img_data = pathlib.Path(full_path).read_text()
-    img_data = img_data.replace("\n", "")
-    cleartext_string = decrypt(cipher_text_string=img_data, secret_key=SECRET_KEY)
-    src_image_data = "data:image/jpeg;base64," + cleartext_string
+    if full_path.is_file():
+        img_data = pathlib.Path(full_path).read_text()
+        img_data = img_data.replace("\n", "")
+        cleartext_string = decrypt(cipher_text_string=img_data, secret_key=SECRET_KEY)
+        src_image_data = "data:image/jpeg;base64," + cleartext_string
+    else:
+        src_image_data = "static/images/encrypted.jpg"
 
 # Set or retrieve OpenShift Namespace for
 namespace_filepath = "/run/secrets/kubernetes.io/serviceaccount/namespace"
