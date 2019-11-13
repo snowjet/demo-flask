@@ -20,7 +20,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", None)
 QUOTE_URL = os.getenv("QUOTE_URL", "http://quote:8080")
 
 if SECRET_IMAGE_LOCATION is None or SECRET_KEY is None:
-    src_image_data = "static/images/encrypted.png"
+    src_image_data = "static/images/encrypted.jpg"
 else:
     ROOT_DIR = str(pathlib.Path(__file__).parent.parent)
     full_path = ROOT_DIR + "/static/images/" + SECRET_IMAGE_LOCATION

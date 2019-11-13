@@ -7,4 +7,4 @@ data:
   PROJECT_NAME: "Sharing"
   IBM_IMAGE_NAME: "ibm.jpg"
   REDHAT_IMAGE_NAME: "redhat.jpg"
-  SECRET_IMAGE_LOCATION: "shared.enc"
+  SECRET_IMAGE_LOCATION: "decrypted.enc"
