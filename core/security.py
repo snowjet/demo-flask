@@ -1,5 +1,6 @@
 from cryptography.fernet import Fernet
 
+
 def encryt(cleartext_string, secret_key):
     key = secret_key.encode("utf-8")
     cipher_suite = Fernet(key)
