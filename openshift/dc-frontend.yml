@@ -46,7 +46,6 @@ spec:
             port: frontend-port
           initialDelaySeconds: 15
           periodSeconds: 20
-      serviceAccount: guacrobot
       volumes:
       - name: frontend-config
         configMap:
