@@ -11,9 +11,10 @@ load_dotenv(env_file)
 LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
 PROJECT_NAME = os.getenv("PROJECT_NAME", "app")
 
+MAIN_TITLE_NAME = os.getenv("MAIN_TITLE_NAME", "Basic Demo")
 MAIN_IMAGE_NAME = os.getenv("MAIN_IMAGE_NAME", "not_found.jpg")
 MAP_IMAGE_NAME = os.getenv("MAP_IMAGE_NAME", "not_found.jpg")
-REDHAT_IMAGE_NAME = os.getenv("REDHAT_IMAGE_NAME", "not_found.jpg")
+OPENSHIFT_IMAGE_NAME = os.getenv("OPENSHIFT_IMAGE_NAME", "not_found.jpg")
 SECRET_IMAGE_LOCATION = os.getenv("SECRET_IMAGE_LOCATION", None)
 
 SECRET_KEY = os.getenv("SECRET_KEY", None)

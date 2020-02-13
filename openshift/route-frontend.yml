@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Route
 metadata:
-  name: mqocp
+  name: frontend
 spec:
   to:
     kind: Service
-    name: mqocp
+    name: frontend
     weight: 100
   port:
     targetPort: 8080

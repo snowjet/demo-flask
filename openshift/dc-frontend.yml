@@ -1,58 +1,56 @@
 apiVersion: v1
 kind: DeploymentConfig
 metadata:
-  name: mqocp
+  name: frontend
   annotations:
     template.alpha.openshift.io/wait-for-ready: "true"
-name: mqocp
+name: frontend
 labels:
-    app: mqocp
+    app: frontend
 spec:
   replicas: 1
   selector:
-    name: mqocp
+    name: frontend
   strategy:
     type: Rolling
   template:
     metadata:
       labels:
-        name: mqocp
-      name: mqocp
+        name: frontend
+      name: frontend
     spec:
       containers:
-      - name: mqocp
-        image: mqocp:latest
+      - name: frontend
+        image: frontend:latest
         imagePullPolicy: Always    
         ports:
-        - name: mqocp-port
+        - name: frontend-port
           containerPort: 8080
         env:        
         - name: env_file
           value:  /opt/app-root/env/.env
         envFrom:
-          - configMapRef:
-              name: configmap-mqocp
           - secretRef:
-              name: secret-mqocp
+              name: secret-frontend
         volumeMounts:
-          - name: configmap-mqocp
+          - name: frontend-config
             readOnly: true
             mountPath: '/opt/app-root/env'            
         readinessProbe:
           tcpSocket:
-            port: mqocp-port
+            port: frontend-port
           initialDelaySeconds: 5
           periodSeconds: 10
         livenessProbe:
           tcpSocket:
-            port: mqocp-port
+            port: frontend-port
           initialDelaySeconds: 15
           periodSeconds: 20
       serviceAccount: guacrobot
       volumes:
-      - name: mqocp-config
+      - name: frontend-config
         configMap:
-          name: configmap-mqocp
+          name: configmap-frontend
           items:
             - key: env
               path: .env
@@ -61,8 +59,8 @@ spec:
   - imageChangeParams:
       automatic: true
       containerNames:
-      - mqocp
+      - frontend
       from:
         kind: ImageStreamTag
-        name: mqocp:latest
+        name: frontend:latest
     type: ImageChange

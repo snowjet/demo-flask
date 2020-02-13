@@ -20,10 +20,10 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column flex-fill ">
       <header class="masthead mb-auto">
         <div class="inner">
-          <h3 class="masthead-brand">Service Mesh Demo</h3>
+          <h3 class="masthead-brand">{{ title }}</h3>
           <nav class="nav nav-masthead justify-content-center flex-fill">
               <a class="nav-link{% if nav == 'home' %} active{% endif %}" href="/">Home</a>
-              <a class="nav-link{% if nav == 'redhat' %} active{% endif %}" href="/redhat">Red Hat</a>
+              <a class="nav-link{% if nav == 'openshift' %} active{% endif %}" href="/openshift">OpenShift</a>
               <a class="nav-link{% if nav == 'map' %} active{% endif %}" href="/map">Mapping</a>
               <a class="nav-link{% if nav == 'secret' %} active{% endif %}" href="/secret">Secret</a>
               <a class="nav-link{% if nav == 'quote' %} active{% endif %}" href="/quote">Quote</a>
@@ -35,7 +35,7 @@
         
         <footer class="mastfoot mt-auto">
             <div class="inner">
-                <small> &copy; 2019 <a href="https://snowjet.github.io/demo-flask/"" title="demo-flask">Demo-Flask</a></small>
+                <small> &copy; 2020 <a href="https://github.com/snowjet/demo-flask/" title="demo-flask">Demo-Flask</a></small>
             </div>
           </footer>
       </div>
