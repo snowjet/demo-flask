@@ -1,0 +1,11 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: configmap-frontend-inject
+data:
+  LOG_LEVEL: "INFO"
+  PROJECT_NAME: "Sharing"
+  MAIN_TITLE_NAME: "Title"
+  MAIN_IMAGE_NAME :  "openshift_intro.png"
+  OPENSHIFT_IMAGE_NAME: "s2i-1.png"
+  SECRET_IMAGE_LOCATION: "decrypted.enc"
