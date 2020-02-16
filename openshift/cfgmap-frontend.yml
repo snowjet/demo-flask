@@ -10,3 +10,4 @@ data:
     MAIN_IMAGE_NAME = "openshift_intro.png"
     OPENSHIFT_IMAGE_NAME="s2i-1.png"
     SECRET_IMAGE_LOCATION="decrypted.enc"
+    QUOTE_URL="http://http://quote.apps.shared.na.openshift.opentlc.com/"
