@@ -21,6 +21,7 @@ from core.config import (
 )
 from core.log import logger
 from core.get_qoute import get_quote
+from core.get_chuck import get_chuck
 
 logger.info(
     "Config Imported",
@@ -72,6 +73,15 @@ def quote():
             return jsonify(name=quote_json['name'], quote=quote_json['quote'])
 
     return render_template("quote.html", title=MAIN_TITLE_NAME, quote_json=quote_json, nav="quote")
+
+
+@app.route("/chuck")
+def chuck():
+    name, quote = get_chuck()
+    logger.info("Returned Quote:", author=name, quote=quote)
+
+    return jsonify(name=name, quote=quote)
+
 
 
 if __name__ == "__main__":
