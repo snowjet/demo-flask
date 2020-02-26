@@ -5,7 +5,7 @@ from core.log import logger
 quotes = [
     {"name": "Chuck Norris", "quote": "Chuck Norris can pick oranges from an apple tree and make the best lemonade you have ever tasted"},
     {"name": "Chuck Norris", "quote": "Chuck Norris has been to mars thats why there are no signs of life"},
-    {"name": "Chuck Norris", "quote": "Chuck Norris can devide by Zero"},
+    {"name": "Chuck Norris", "quote": "Chuck Norris can divide by Zero"},
     {"name": "Chuck Norris", "quote": "When Chuck Norris throws exceptions, it’s across the room."},
     {"name": "Chuck Norris", "quote": "All arrays Chuck Norris declares are of infinite size, because Chuck Norris knows no bounds."},
     {"name": "Chuck Norris", "quote": "Chuck Norris doesn’t have disk latency because the hard drive knows to hurry up."},
