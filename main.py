@@ -78,7 +78,7 @@ def quote():
 @app.route("/chuck")
 def chuck():
     hostname, name, quote = get_chuck()
-    logger.info("Returned Quote:", hostname=hostname, name=name, quote=quote)
+    logger.info("Returned Quote:", hostname=hostname, author=name, quote=quote)
 
     return jsonify(hostname=hostname, name=name, quote=quote)
 
