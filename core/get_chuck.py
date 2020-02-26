@@ -17,11 +17,13 @@ quotes = [
     {"name": "Chuck Norris", "quote": "'It works on my machine' always holds true for Chuck Norris."},
 ]
 
+
 def get_chuck():
     try:
+        hostname = os.uname()[1]
         index = int(random.randint(0, len(quotes) - 1))
-        return quotes[index]["name"], quotes[index]["quote"]
+        return hostname, quotes[index]["name"], quotes[index]["quote"]
     except Exception as err:
         logger.error(f"Other error occurred: {err}")
-        return {"name": "error", "quote": err}
+        return {"hostname": "hostname", "name": "error", "quote": err}
 
